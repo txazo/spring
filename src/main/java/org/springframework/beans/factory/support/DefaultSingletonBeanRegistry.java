@@ -83,16 +83,16 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	/** Cache of singleton objects: bean name --> bean instance */
-	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(256);
+	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<String, Object>(256); // 单例实例缓存
 
 	/** Cache of singleton factories: bean name --> ObjectFactory */
-	private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<String, ObjectFactory<?>>(16);
+	private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<String, ObjectFactory<?>>(16); // 单例工厂缓存
 
 	/** Cache of early singleton objects: bean name --> bean instance */
-	private final Map<String, Object> earlySingletonObjects = new HashMap<String, Object>(16);
+	private final Map<String, Object> earlySingletonObjects = new HashMap<String, Object>(16); // 早期单例实例缓存
 
 	/** Set of registered singletons, containing the bean names in registration order */
-	private final Set<String> registeredSingletons = new LinkedHashSet<String>(256);
+	private final Set<String> registeredSingletons = new LinkedHashSet<String>(256); // 已注册的单例
 
 	/** Names of beans that are currently in creation */
 	private final Set<String> singletonsCurrentlyInCreation =
@@ -227,7 +227,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 					this.suppressedExceptions = new LinkedHashSet<Exception>();
 				}
 				try {
-					singletonObject = singletonFactory.getObject();
+					singletonObject = singletonFactory.getObject(); // 实例化单例
 					newSingleton = true;
 				}
 				catch (IllegalStateException ex) {

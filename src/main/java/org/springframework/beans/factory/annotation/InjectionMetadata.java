@@ -85,7 +85,7 @@ public class InjectionMetadata {
 				if (debug) {
 					logger.debug("Processing injected element of bean '" + beanName + "': " + element);
 				}
-				element.inject(target, beanName, pvs);
+				element.inject(target, beanName, pvs); // ioc依赖注入
 			}
 		}
 	}

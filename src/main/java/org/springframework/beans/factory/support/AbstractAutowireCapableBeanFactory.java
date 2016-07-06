@@ -479,7 +479,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 					"BeanPostProcessor before instantiation of bean failed", ex);
 		}
 
-		Object beanInstance = doCreateBean(beanName, mbdToUse, args);
+		Object beanInstance = doCreateBean(beanName, mbdToUse, args); // 创建Bean实例
 		if (logger.isDebugEnabled()) {
 			logger.debug("Finished creating instance of bean '" + beanName + "'");
 		}
@@ -507,7 +507,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			instanceWrapper = this.factoryBeanInstanceCache.remove(beanName);
 		}
 		if (instanceWrapper == null) {
-			instanceWrapper = createBeanInstance(beanName, mbd, args);
+			instanceWrapper = createBeanInstance(beanName, mbd, args); // 实例化Bean
 		}
 		final Object bean = (instanceWrapper != null ? instanceWrapper.getWrappedInstance() : null);
 		Class<?> beanType = (instanceWrapper != null ? instanceWrapper.getWrappedClass() : null);
@@ -534,13 +534,13 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 				public Object getObject() throws BeansException {
 					return getEarlyBeanReference(beanName, mbd, bean);
 				}
-			});
+			}); // 设置当前实例化Bean的工厂, 处理循环依赖
 		}
 
 		// Initialize the bean instance.
 		Object exposedObject = bean;
 		try {
-			populateBean(beanName, mbd, instanceWrapper);
+			populateBean(beanName, mbd, instanceWrapper); // 初始化Bean实例
 			if (exposedObject != null) {
 				exposedObject = initializeBean(beanName, exposedObject, mbd);
 			}
@@ -1047,7 +1047,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		// No special handling: simply use no-arg constructor.
-		return instantiateBean(beanName, mbd);
+		return instantiateBean(beanName, mbd); // 实例化Bean
 	}
 
 	/**

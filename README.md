@@ -44,3 +44,8 @@ Spring Framework Source Code Analysis
 ## context:component-scan
 
 * ComponentScanBeanDefinitionParser
+
+## ioc注入
+
+* AbstractAutowireCapableBeanFactory.doCreateBean()
+* AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues()

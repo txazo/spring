@@ -1015,7 +1015,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		else {
 			Object result = getAutowireCandidateResolver().getLazyResolutionProxyIfNecessary(descriptor, beanName);
 			if (result == null) {
-				result = doResolveDependency(descriptor, beanName, autowiredBeanNames, typeConverter);
+				result = doResolveDependency(descriptor, beanName, autowiredBeanNames, typeConverter); // 解析依赖
 			}
 			return result;
 		}
