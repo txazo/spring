@@ -517,22 +517,22 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 			try {
 				// Allows post-processing of the bean factory in context subclasses.
-				postProcessBeanFactory(beanFactory);
+				postProcessBeanFactory(beanFactory); // 设置BeanFactory的后处理器
 
 				// Invoke factory processors registered as beans in the context.
-				invokeBeanFactoryPostProcessors(beanFactory);
+				invokeBeanFactoryPostProcessors(beanFactory); // 调用BeanFactory的后处理器
 
 				// Register bean processors that intercept bean creation.
-				registerBeanPostProcessors(beanFactory);
+				registerBeanPostProcessors(beanFactory); // 注册Bean的后处理器
 
 				// Initialize message source for this context.
-				initMessageSource();
+				initMessageSource(); // 初始化国际化消息
 
 				// Initialize event multicaster for this context.
-				initApplicationEventMulticaster();
+				initApplicationEventMulticaster(); // 初始化上下文的事件机制
 
 				// Initialize other special beans in specific context subclasses.
-				onRefresh();
+				onRefresh(); // 初始化
 
 				// Check for listener beans and register them.
 				registerListeners(); // 注册事件监听器
@@ -541,7 +541,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				finishBeanFactoryInitialization(beanFactory); // 实例化所有剩下的非延迟初始化的单例
 
 				// Last step: publish corresponding event.
-				finishRefresh();
+				finishRefresh(); // 发布容器事件, 结束刷新过程
 			}
 
 			catch (BeansException ex) {

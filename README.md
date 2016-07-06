@@ -20,6 +20,12 @@ Spring Framework Source Code Analysis
 
 * DefaultListableBeanFactory
 
+## IOC容器BeanFactory初始化过程
+
+* Resource定位
+* 加载BeanDefinition
+* 注册BeanDefinition
+
 ## ApplicationContext
 
 * ClassPathXmlApplicationContext
