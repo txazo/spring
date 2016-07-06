@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:txazo="http://www.txazo.com/schema/txazo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.txazo.com/schema/txazo http://www.txazo.com/schema/txazo/txazo.xsd">
+
+    <txazo:config init="true"/>
+
+</beans>

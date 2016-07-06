@@ -1398,17 +1398,17 @@ public class BeanDefinitionParserDelegate {
 	}
 
 	public BeanDefinition parseCustomElement(Element ele) {
-		return parseCustomElement(ele, null);
+		return parseCustomElement(ele, null); // 解析自定义标签元素
 	}
 
 	public BeanDefinition parseCustomElement(Element ele, BeanDefinition containingBd) {
-		String namespaceUri = getNamespaceURI(ele);
-		NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
+		String namespaceUri = getNamespaceURI(ele); // 命名空间uri
+		NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri); // 查找命名空间对应的NamespaceHandler
 		if (handler == null) {
 			error("Unable to locate Spring NamespaceHandler for XML schema namespace [" + namespaceUri + "]", ele);
 			return null;
 		}
-		return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));
+		return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd)); // 解析标签配置
 	}
 
 	public BeanDefinitionHolder decorateBeanDefinitionIfRequired(Element ele, BeanDefinitionHolder definitionHolder) {

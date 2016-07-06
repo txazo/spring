@@ -178,14 +178,14 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 		Assert.notNull(resources, "Resource array must not be null");
 		int counter = 0;
 		for (Resource resource : resources) {
-			counter += loadBeanDefinitions(resource);
+			counter += loadBeanDefinitions(resource); // 加载Resource中的BeanDefinition
 		}
 		return counter;
 	}
 
 	@Override
 	public int loadBeanDefinitions(String location) throws BeanDefinitionStoreException {
-		return loadBeanDefinitions(location, null);
+		return loadBeanDefinitions(location, null); // 加载BeanDefinition
 	}
 
 	/**
@@ -214,7 +214,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 			// Resource pattern matching available.
 			try {
 				Resource[] resources = ((ResourcePatternResolver) resourceLoader).getResources(location);
-				int loadCount = loadBeanDefinitions(resources);
+				int loadCount = loadBeanDefinitions(resources); // 加载Resource中的BeanDefinition
 				if (actualResources != null) {
 					for (Resource resource : resources) {
 						actualResources.add(resource);
@@ -249,7 +249,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 		Assert.notNull(locations, "Location array must not be null");
 		int counter = 0;
 		for (String location : locations) {
-			counter += loadBeanDefinitions(location);
+			counter += loadBeanDefinitions(location); // 加载BeanDefinition
 		}
 		return counter;
 	}

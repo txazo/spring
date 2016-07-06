@@ -301,7 +301,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	 */
 	@Override
 	public int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException {
-		return loadBeanDefinitions(new EncodedResource(resource));
+		return loadBeanDefinitions(new EncodedResource(resource)); // 加载Resource中的BeanDefinition
 	}
 
 	/**
@@ -333,7 +333,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 				if (encodedResource.getEncoding() != null) {
 					inputSource.setEncoding(encodedResource.getEncoding());
 				}
-				return doLoadBeanDefinitions(inputSource, encodedResource.getResource());
+				return doLoadBeanDefinitions(inputSource, encodedResource.getResource()); // 加载BeanDefinition
 			}
 			finally {
 				inputStream.close();
@@ -388,8 +388,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	protected int doLoadBeanDefinitions(InputSource inputSource, Resource resource)
 			throws BeanDefinitionStoreException {
 		try {
-			Document doc = doLoadDocument(inputSource, resource);
-			return registerBeanDefinitions(doc, resource);
+			Document doc = doLoadDocument(inputSource, resource); // 加载xml配置为Document
+			return registerBeanDefinitions(doc, resource); // 注册BeanDefinition
 		}
 		catch (BeanDefinitionStoreException ex) {
 			throw ex;
@@ -505,7 +505,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	public int registerBeanDefinitions(Document doc, Resource resource) throws BeanDefinitionStoreException {
 		BeanDefinitionDocumentReader documentReader = createBeanDefinitionDocumentReader();
 		int countBefore = getRegistry().getBeanDefinitionCount();
-		documentReader.registerBeanDefinitions(doc, createReaderContext(resource));
+		documentReader.registerBeanDefinitions(doc, createReaderContext(resource)); // 读取并注册BeanDefinition
 		return getRegistry().getBeanDefinitionCount() - countBefore;
 	}
 

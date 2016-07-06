@@ -9,4 +9,6 @@
 
     <context:component-scan base-package="test.spring.ioc"/>
 
+    <bean id="iocService" class="test.spring.ioc.IocService"/>
+
 </beans>

@@ -507,10 +507,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	public void refresh() throws BeansException, IllegalStateException {
 		synchronized (this.startupShutdownMonitor) {
 			// Prepare this context for refreshing.
-			prepareRefresh();
+			prepareRefresh();  // 刷新准备操作
 
 			// Tell the subclass to refresh the internal bean factory.
-			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory(); // 刷新内部的BeanFactory
 
 			// Prepare the bean factory for use in this context.
 			prepareBeanFactory(beanFactory);
@@ -535,10 +535,10 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				onRefresh();
 
 				// Check for listener beans and register them.
-				registerListeners();
+				registerListeners(); // 注册事件监听器
 
 				// Instantiate all remaining (non-lazy-init) singletons.
-				finishBeanFactoryInitialization(beanFactory);
+				finishBeanFactoryInitialization(beanFactory); // 实例化所有剩下的非延迟初始化的单例
 
 				// Last step: publish corresponding event.
 				finishRefresh();
@@ -582,11 +582,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 
 		// Initialize any placeholder property sources in the context environment
-		initPropertySources();
+		initPropertySources(); // 初始化上下文的property来源
 
 		// Validate that all properties marked as required are resolvable
 		// see ConfigurablePropertyResolver#setRequiredProperties
-		getEnvironment().validateRequiredProperties();
+		getEnvironment().validateRequiredProperties(); // 检验必需的property
 
 		// Allow for the collection of early ApplicationEvents,
 		// to be published once the multicaster is available...
@@ -609,7 +609,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 * @see #getBeanFactory()
 	 */
 	protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
-		refreshBeanFactory();
+		refreshBeanFactory(); // 刷新BeanFactory
 		ConfigurableListableBeanFactory beanFactory = getBeanFactory();
 		if (logger.isDebugEnabled()) {
 			logger.debug("Bean factory for " + getDisplayName() + ": " + beanFactory);
@@ -858,7 +858,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		beanFactory.freezeConfiguration();
 
 		// Instantiate all remaining (non-lazy-init) singletons.
-		beanFactory.preInstantiateSingletons();
+		beanFactory.preInstantiateSingletons(); // 实例化所有剩下的非延迟初始化的单例
 	}
 
 	/**
