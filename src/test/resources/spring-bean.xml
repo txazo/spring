@@ -5,4 +5,21 @@
 
     <bean id="iocService" class="test.spring.ioc.IocService"/>
 
+    <!-- 单例bean -->
+    <bean id="singletonObject" class="test.spring.ioc.scope.SingletonObject"/>
+
+    <!-- 原型bean -->
+    <bean id="prototypeObject" class="test.spring.ioc.scope.PrototypeObject" scope="prototype"/>
+
+    <!-- 循环依赖 -->
+    <bean id="identity" class="test.spring.ioc.circulardependency.Identity">
+        <constructor-arg index="0" value="421181199001011234"/>
+        <property name="people" ref="people"/>
+    </bean>
+
+    <bean id="people" class="test.spring.ioc.circulardependency.People">
+        <constructor-arg index="0" value="xiaozhou.tu"/>
+        <property name="identity" ref="identity"/>
+    </bean>
+
 </beans>
