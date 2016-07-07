@@ -55,3 +55,12 @@ Spring Framework Source Code Analysis
 
 * AbstractAutowireCapableBeanFactory.doCreateBean()
 * AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues()
+
+## xml的ioc注入
+
+* 读取bean的autowire配置, DefaultBeanDefinitionDocumentReader.getAutowireMode(), byName/byType
+* AbstractAutowireCapableBeanFactory.populateBean()
+* byName - autowireByName()
+* byType - autowireByType()
+
+## 注解的ioc注入
