@@ -32,4 +32,12 @@ public class MyAware implements BeanNameAware, BeanFactoryAware, ApplicationCont
         this.applicationContext = applicationContext;
     }
 
+    public BeanFactory getBeanFactory() {
+        return beanFactory;
+    }
+
+    public ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
 }
