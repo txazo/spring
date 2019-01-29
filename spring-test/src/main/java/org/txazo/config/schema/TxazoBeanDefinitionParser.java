@@ -1,4 +1,4 @@
-package org.txazo.config.spring.schema;
+package org.txazo.config.schema;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.RootBeanDefinition;

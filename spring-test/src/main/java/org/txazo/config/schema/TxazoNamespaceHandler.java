@@ -1,4 +1,4 @@
-package org.txazo.config.spring.schema;
+package org.txazo.config.schema;
 
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 import org.txazo.config.TxazoConfig;

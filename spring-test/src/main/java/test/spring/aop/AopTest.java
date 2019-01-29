@@ -8,10 +8,10 @@ import test.spring.aop.service.CommonService;
 public class AopTest {
 
     public static void main(String[] args) {
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/txazo/test");
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E:\\test");
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("test/spring/aop/spring-aop.xml");
         CommonService commonService = applicationContext.getBean(CommonService.class);
-        commonService.common("apo");
+        commonService.common("aop");
     }
 
 }
